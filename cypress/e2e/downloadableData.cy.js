@@ -16,7 +16,7 @@ describe('Extract Data from Links', () => {
           const strongText = $p.find('strong').text().trim();
           const anchorText = $p.find('a').text().trim();
           if (strongText && anchorText) {
-            formattedPairs.push(`${strongText}:${anchorText}`);
+            formattedPairs.push(`${strongText} "${anchorText}"`);
           }
         }).then(() => {
           const finalFormatted = `{${formattedPairs.join(',')}}`;
