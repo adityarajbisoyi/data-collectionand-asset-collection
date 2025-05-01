@@ -5,8 +5,9 @@ describe('Download Image from Each Link', () => {
     cy.readFile('cypress/fixtures/data.csv').then((csvContent) => {
       const rows = Papa.parse(csvContent, { header: true }).data;
 
-      rows.forEach((row, index) => {
+      rows.forEach((row) => {
         const pageUrl = row.link;
+        const num = row["#"]
 
         cy.visit(pageUrl);
 
@@ -14,7 +15,7 @@ describe('Download Image from Each Link', () => {
           .invoke('attr', 'src')
           .then((imgUrl) => {
             // Download the image using a task
-            const filename = `${index + 1}.jpg`;
+            const filename = `${num}.jpg`;
             cy.task('downloadImage', { url: imgUrl, filename });
           });
       });
