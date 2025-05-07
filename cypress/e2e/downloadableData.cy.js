@@ -3,22 +3,25 @@ import Papa from 'papaparse';
 describe('Extract Data from Links', () => {
   it('should extract information from each link and append each row properly', () => {
     const outputFile = 'cypress/downloads/output.csv';
-    const allKeys = new Set(["Common Name"]);
+    const allKeys = new Set(["#","Common Name"]);
     const previousEntries = [];
 
-    cy.writeFile(outputFile, ''); // clear the file first
+    // cy.writeFile(outputFile, ''); // clear the file first
 
     cy.readFile('cypress/fixtures/data.csv').then((csvContent) => {
-      const rows = Papa.parse(csvContent, { header: true }).data;
+      const rows = Papa.parse(csvContent,{header:true}).data;
 
       rows.forEach((row) => {
         const pageUrl = row.link;
         const commonName = row["Common Name"];
+        // let indexx = row["#"];
+        // console.log(row);
+       
 
         cy.visit(pageUrl);
 
         cy.get('div.list p').then(($ps) => {
-          const entry = { "Common Name": commonName };
+          const entry = {"Common Name": commonName};
 
           $ps.each((_, p) => {
             const $p = Cypress.$(p);
@@ -30,6 +33,8 @@ describe('Extract Data from Links', () => {
               allKeys.add(key);
             }
           });
+          // console.log(row["#"]);
+          // entry["index"] = row["#"];
 
         }).then(() => {
           const keysArray = Array.from(allKeys);
