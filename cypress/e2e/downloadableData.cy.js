@@ -4,6 +4,7 @@ describe('Extract Data from Links', () => {
   it('should extract information from each link and append each row properly', () => {
     const outputFile = 'cypress/downloads/output.csv';
     const allKeys = new Set(["#","Common Name"]);
+    
     const previousEntries = [];
 
     // cy.writeFile(outputFile, ''); // clear the file first
