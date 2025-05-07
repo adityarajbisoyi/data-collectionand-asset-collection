@@ -1,0 +1,783 @@
+﻿<marquee width="100%" direction="left" style="color:red; font-weight:bold;" onmouseover="this.stop();" onmouseout="this.start();">
+"Type specimens databases have been migrated to https://ivh.bsi.gov.in"
+</marquee>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BSI | Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="BSI Archive, bsi, archive textile, natural dyes, herbarium" />
+            <script type="text/javascript"> 
+            addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar()
+            { 
+              //  window.scrollTo(0,1); 
+            } 
+            var BASE_URL = "https://archive.bsi.gov.in/";
+        </script>
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/contact.css" rel='stylesheet' type='text/css' />
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://archive.bsi.gov.in/assets/frontend/css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="https://archive.bsi.gov.in/assets/frontend/css/owl.theme.css" type="text/css" media="all">
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/fontawesome-all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prata" rel="stylesheet"> -->
+
+
+<!-- Icons font CSS-->
+    <link href="https://archive.bsi.gov.in/assets/frontend/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="https://archive.bsi.gov.in/assets/frontend/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+ 
+        <!-- Vendor CSS-->
+   <!--  <link href="frontend/vendor/select2/select2.min.css" rel="stylesheet" media="all"> -->
+    <link href="https://archive.bsi.gov.in/assets/frontend/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+
+    <!-- Main CSS-->
+    <link href="https://archive.bsi.gov.in/assets/frontend/css/main.css" rel="stylesheet" media="all">
+<style>
+ 
+	#modalOverlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 99999;
+			height: 100%;
+			width: 100%;
+	}
+.modalPopup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 80%;
+    padding: 0 0 0px;
+    -webkit-box-shadow: 0 2px 10px 3px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px 3px rgb(0 0 0 / 20%);
+}
+.modalContent {padding: 2em; padding-bottom:0.5em;}
+.headerBar {
+		width: 100%;
+		
+		margin: 0;
+	  text-align: center;
+	}
+.headerBar img {
+		margin: 1em .7em;
+	}
+
+p {margin: .75em 0 1.5em;}
+.buttonStyle {
+		border: transparent;
+		border-radius: 0;
+		background: #6d6d6d;
+		color: #eee !important;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		padding: 4px 15px;
+		text-decoration: none;
+		background: -moz-linear-gradient(top, #6d6d6d 0%, #1e1e1e 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6d6d6d), color-stop(100%,#1e1e1e));
+		background: -webkit-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+		background: -o-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+		background: -ms-linear-gradient(top, #6d6d6d 0%,#1e1e1e 100%);
+		background: linear-gradient(to bottom, #6d6d6d 0%,#1e1e1e 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d6d6d', endColorstr='#1e1e1e',GradientType=0 );
+	/*	-webkit-box-shadow: 0 2px 4px 0 #999;
+		box-shadow: 0 2px 4px 0 #999; */
+		-webkit-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-ms-transition: all 1s ease;
+		-o-transition: all 1s ease;
+		transition: all 1s ease;
+	}
+	.buttonStyle:hover {
+		background: #1e1e1e;
+		color: #fff;
+		background: -moz-linear-gradient(top, #1e1e1e 0%, #6d6d6d 100%, #6d6d6d 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e1e1e), color-stop(100%,#6d6d6d), color-stop(100%,#6d6d6d));
+		background: -webkit-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+		background: -o-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+		background: -ms-linear-gradient(top, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+		background: linear-gradient(to bottom, #1e1e1e 0%,#6d6d6d 100%,#6d6d6d 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', endColorstr='#6d6d6d',GradientType=0 );
+	}
+.returnToProfile {text-align: center; margin:3em;}
+.returnToProfile a, .returnToProfile a:visited {color: #ddd;}
+.returnToProfile a:hover {color: #fff;}
+
+.section1 h2{
+  text-align:center;
+  font-size:40px;
+}
+.section1 p{
+  text-align:center;
+  padding:0px 70px;
+  color:grey;
+}
+.sticky-social{
+  position: fixed;
+    top: 30%;
+    right: 0px;
+    padding: 0px;
+    margin: 0px;
+    z-index: 9;
+}
+.social{
+  list-style:none;
+  box-shadow: -8px 2px 10px -5px;
+}
+.social li{
+  padding:5px 6px;
+  font-size:18px;
+  transition:all 0.4s ease-in-out;
+}
+.social li i{
+  margin-left: 5px;
+}
+.social li:hover{
+    margin-left:-40px;
+ box-shadow:2px 5px 10px grey;
+}
+.social li:hover .fa{
+    margin-right:30px;
+}
+.social li:hover .img-icon{
+    margin-right:30px;
+}
+.fa, .img-icon{
+  color:#fff;
+  transition:all 0.4s ease-in-out;
+}
+.fb{
+  background-color:#3C5A98;
+}
+.twitter{
+    background-color:#1EA1F2;
+}
+.insta{
+    background-color:#DC4F42;
+}
+.linkedin{
+    background-color:#FF0000;
+}
+.koo{
+    background-color:#fff;
+}
+</style>
+
+</head>
+
+<body oncontextmenu='return True;'>
+
+    <!--Header-->
+    <header>
+       <!-- jhk -->
+        <div class="header_top" id="home">
+            <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+           
+                    <a class="navbar-brand" href="https://bsi.gov.in/" target="_blank" ><img src="https://archive.bsi.gov.in/uploads/logos/bsi_logo1610360437_45911.png" width="75" height="75" alt="BSI Archive" ></a>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            
+            <ul class="navbar-nav">
+                
+                <li class="nav-item"><a class="nav-link cool" href="https://archive.bsi.gov.in/#">Home</a></li>
+                <li class="nav-item dropdown "><a href="#" class="nav-link dropdown-toggle cool" data-toggle="dropdown">About Us<i class="fas fa-angle-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item "><a class="nav-link cool " href="https://archive.bsi.gov.in/page/en/brief-history">About Organization</a></li>
+                <li class="nav-item "><a class="nav-link cool " href="https://archive.bsi.gov.in/page/en/bsi-locations">BSI Location</a></li>
+                <li class="nav-item "><a class="nav-link cool " href="https://archive.bsi.gov.in/page/en/bsi-herbaria">BSI Herbaria</a></li>
+                </ul></li>
+                <li class="nav-item"><a class="nav-link cool" href="https://archive.bsi.gov.in/textiles/en">Textile Design</a></li>
+                <li class="nav-item"><a class="nav-link cool" href="https://archive.bsi.gov.in/dyes/en">Natural Dyes</a></li>
+                <li class="nav-item"><a class="nav-link cool" href="https://archive.bsi.gov.in/b-illustrations/en">Botanical Illustrations</a></li>
+                <li class="nav-item dropdown "><a href="#" class="nav-link dropdown-toggle cool" data-toggle="dropdown">Herbarium<i class="fas fa-angle-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li class="nav-item"><a class="nav-link cool" href="https://archive.bsi.gov.in/economic-herbarium/en">Economic Botany</a></li>
+                <li class="nav-item"><a class="nav-link cool" href="https://ivh.bsi.gov.in/cryptogams">Cryptogams Type</a></li>
+                <li class="nav-item"><a class="nav-link cool" href="https://ivh.bsi.gov.in/phanerogams">Phanerogams Type</a></li></ul></li>
+                <li class="nav-item "><a class="nav-link cool " href="https://archive.bsi.gov.in/page/en/contact-us">Contact Us</a></li>     
+            </ul>
+                </div>
+                <div class="emblam" style="width: 12%;">
+                     <div class="row">
+                <div class="col-lg-5">
+            <img src="https://archive.bsi.gov.in/uploads/logos/bsi_logo1610360450_79382.png" width="60"  alt="BSI Archive"></div>
+            <div class="col-lg-1">
+                <a href="http://moef.gov.in/" target="_blank">
+            <img src="https://archive.bsi.gov.in/uploads/logos/bsi_logo1610360462_6034.png" width="60"  alt="BSI Archive"></a>
+           </div>
+            </div>
+                  </div>
+            </nav>
+        </div>
+    </header>
+
+    <!--//header-->
+    <div class="section1">
+   
+    
+<div class="sticky-social">
+  <ul class="social">
+    <li class="fb"><a target="_blank" href="https://www.facebook.com/moefcc"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li class="twitter"><a target="_blank" href="https://twitter.com/bsi_moefcc"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li class="insta"><a target="_blank" href="https://www.instagram.com/bsi_moefcc"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+      <li class="linkedin"><a target="_blank" href="https://www.youtube.com/c/BSIMoEFCCOfficial"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+      <li class="koo"><a target="_blank" href="https://www.kooapp.com/profile/bsi_moefcc"><img class="img-icon" src="https://ivh.bsi.gov.in/assets/frontend/icons/kooicon.png" width="25"></a></li>
+    </ul>
+  </div>
+</div>
+<!-- Modal Start-->
+<!--<div id="modalOverlay">
+		<div class="modalPopup">
+			
+			<div class="modalContent">
+					<a href="https://amritmahotsav.nic.in/" target="_blank">
+					 <img src="https://archive.bsi.gov.in/assets/images/members/banner2.jpg" alt="Banner" 
+style="width:100%; "></a>	
+
+			    <div class="row">
+			       <div class="col-lg-11">	
+			           
+<h1 align="left"><a href="https://amritmahotsav.nic.in/" style="color: #4c643b;font-size:20px;" target="_blank">Azadi Ka Amrit Mahotsav</a></h1>
+	
+                               </div>
+                                 <div class="col-lg-1" style="padding: 0em; margin-top: 5px;">	
+	<button class="buttonStyle" id="button">Close</button>
+				</div>	
+                            </div>
+			</div>
+		</div>
+	</div>-->
+
+<!-- Modal End-->
+
+
+    <!--/banner-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <!--<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
+  </ol>
+
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+<!--<div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/banner.jpg' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block" 
+      style="top:25em;">
+        
+        <h5 ><a href="https://rashtragaan.in/"><button type="button" class="btn btn-outline-success">Participate Now</button></a></h5>
+      </div>
+    </div>-->
+    <div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/bsi_banner1640000025_18354.png' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block">
+        <h4>Digital Archives of Botanical Survey of India </h4>        <a href='https://archive.bsi.gov.in/page/en/brief-history'><h5><span>Digital Archives of Botanical Survey of India</span></h5></a>
+      </div>
+    </div>
+  
+
+     <div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/bsi_banner1639999431_35027.png' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block">
+        <h4>Digital Archives of Botanical Survey of India </h4>        <a href='https://archive.bsi.gov.in/page/en/brief-history'><h5><span>Digital Archives of Botanical Survey of India</span></h5></a>
+      </div>
+    </div>
+  
+
+     <div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/bsi_banner1639998214_2807.png' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block">
+        <h4>Digital Archives of Botanical Survey of India </h4>        <a href='https://archive.bsi.gov.in/page/en/brief-history'><h5><span>Ministry of Environment Forest and Climate Change</span></h5></a>
+      </div>
+    </div>
+  
+
+     <div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/bsi_banner1631602960_17811.png' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block">
+        <h4>Digital Archives of Botanical Survey of India </h4>        <a href='https://archive.bsi.gov.in/page/en/brief-history'><h5><span>Ministry of Environment Forest and Climate Change</span></h5></a>
+      </div>
+    </div>
+  
+
+     <div class="carousel-item">
+      <img class="d-block w-100" src='https://archive.bsi.gov.in/uploads/banners/bsi_banner1639999376_65567.png' data-color="lightblue" alt="First Image">
+      <div class="carousel-caption d-md-block">
+        <h4>Digital Archives of Botanical Survey of India </h4>        <a href='https://archive.bsi.gov.in/page/en/brief-history'><h5><span>Ministry of Environment Forest and Climate Change</span></h5></a>
+      </div>
+    </div>
+  
+
+ 
+  </div>
+
+  <!-- Controls -->
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+
+
+<!--Minister section-->
+<section class="col-lg-12 mb-4 ">
+<div class="ministers">
+  <div class="row">
+
+    <div class="card">
+      <img class="images-1" src="https://archive.bsi.gov.in/assets/images/members/draupadi_murmu.jpg" alt="Photo " style="width:80%; height:auto; padding: 14px;">
+        <a href="https://presidentofindia.nic.in/" target="_blank">
+        <h5 class="card-title mt-3 mb-3"><strong>Smt. Droupadi Murmu</strong> <br> (President)</h5>
+        </a>
+    </div>
+
+    <div class="card">
+      <img class="images-1" src="https://archive.bsi.gov.in/assets/images/members/narendra-modi.jpg" alt="Photo " style="width:100%; padding-left:0em; padding-right:0em ">
+        <a href="https://www.pmindia.gov.in/en/" target="_blank">
+        <h5 class="card-title mt-3 mb-3"><strong> Sh. Narendra Modi</strong> <br> (Prime Minister) </h5>
+        </a>
+    </div>
+ 
+  <div class="card">
+    <img class="images-1" src="https://archive.bsi.gov.in/assets/images/members/Bhupender-Yadav.jpg" alt="Photo ">
+    <a href="http://moef.gov.in/en/about-the-ministry/cabinet-minister-2/" target="_blank">
+        <h5 class="card-title  mt-3 mb-3">Sh. Bhupender Yadav<br> (Hon'ble Minister) </h5></a>
+       
+  </div>
+   
+  <div class="card"> 
+    <img class="images-1" src="https://archive.bsi.gov.in/assets/images/members/Kirtivardhansingh.jpg" alt="Photo ">
+    <a href="http://moef.gov.in/en/about-the-ministry/minister_of_state/" target="_blank">
+        <h5 class="card-title  mt-3 mb-3"> Sh. Kirtivardhan Singh <br> (Hon'ble Minister of State) </h5>
+        </a>
+  </div>
+ 
+   
+  <div class="card"> 
+    <img class="images-1" src="https://archive.bsi.gov.in/assets/images/members/tanmaykr.png" style="margin-top: 12px; alt="Photo">
+    <a href="#" target="_blank">
+        <h5 class="card-title  mb-3">Mr. Tanmay Kumar<br>(Secretary, EF&CC)</h5>
+         </a>
+  
+    </div>    
+
+    
+  <div class="card"> 
+    <img class="images-1" src="https://bsi.gov.in/assets/frontend/images/A_Mao.jpg" alt="Photo " >
+    <a href="#" target="_blank">
+        <h5 class="card-title">Dr Ashiho Asosii Mao<br>(Director, Botanical Survey of India)</h5>
+         </a>
+ 
+    </div>    
+  </div>
+</div>    
+ </section>
+<!--End Minister section-->
+
+
+ <div class="featured-items " >
+ <div class="owl-carousel">
+
+   
+  <div class="item">
+    <a class="popup-youtube" href="https://ivh.bsi.gov.in/phanerogams">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631621460_65340.jpg" alt="Phanerogams Type">
+    <p>PHANEROGAMS TYPE</p>
+   </a>
+  </div>
+  
+  <div class="item">
+    <a class="popup-youtube" href="https://ivh.bsi.gov.in/cryptogams">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1635327194_45212.jpg" alt="Cryptogams Type">
+    <p>CRYPTOGAMS TYPE</p>
+   </a>
+  </div>
+  
+  <div class="item">
+    <a class="popup-youtube" href="https://archive.bsi.gov.in/economic-herbarium/en">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631621142_43500.jpg" alt="Economic Botany">
+    <p>ECONOMIC BOTANY</p>
+   </a>
+  </div>
+  
+  <div class="item">
+    <a class="popup-youtube" href="https://archive.bsi.gov.in/b-illustrations/en">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602789_31549.jpg" alt="Botanical Illustrations">
+    <p>BOTANICAL ILLUSTRATIONS</p>
+   </a>
+  </div>
+  
+  <div class="item">
+    <a class="popup-youtube" href="https://archive.bsi.gov.in/dyes/en">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602711_44381.jpg" alt="Natural Dyes">
+    <p>NATURAL DYES</p>
+   </a>
+  </div>
+  
+  <div class="item">
+    <a class="popup-youtube" href="https://archive.bsi.gov.in/textiles/en">
+<img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602677_22664.jpg" alt="Textile Design">
+    <p>TEXTILE DESIGN</p>
+   </a>
+  </div>
+ 
+</div>
+
+
+     <!--<h3 class="tittle text-center">Imortant Links</h3>-->
+       <!--  <div class="inner-sec-wthree-agileits">
+            <div class="sreen-gallery-cursual">
+
+                <div class="owl-carousel owl-theme">
+
+                                         <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631621460_65340.jpg" class="img-fluid rounded" alt="Phanerogams Type" />
+                            <h5><a href="https://ivh.bsi.gov.in/phanerogams">PHANEROGAMS TYPE</a></h5>
+                        </div>
+                    </div>
+                                             <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1635327194_45212.jpg" class="img-fluid rounded" alt="Cryptogams Type" />
+                            <h5><a href="https://ivh.bsi.gov.in/cryptogams">CRYPTOGAMS TYPE</a></h5>
+                        </div>
+                    </div>
+                                             <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631621142_43500.jpg" class="img-fluid rounded" alt="Economic Botany" />
+                            <h5><a href="https://archive.bsi.gov.in/economic-herbarium/en">ECONOMIC BOTANY</a></h5>
+                        </div>
+                    </div>
+                                             <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602789_31549.jpg" class="img-fluid rounded" alt="Botanical Illustrations" />
+                            <h5><a href="https://archive.bsi.gov.in/b-illustrations/en">BOTANICAL ILLUSTRATIONS</a></h5>
+                        </div>
+                    </div>
+                                             <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602711_44381.jpg" class="img-fluid rounded" alt="Natural Dyes" />
+                            <h5><a href="https://archive.bsi.gov.in/dyes/en">NATURAL DYES</a></h5>
+                        </div>
+                    </div>
+                                             <div class="item">
+                        <div class="item-review text-center">
+                            <img src="https://archive.bsi.gov.in/uploads/initiatives/bsi_initiatives1631602677_22664.jpg" class="img-fluid rounded" alt="Textile Design" />
+                            <h5><a href="https://archive.bsi.gov.in/textiles/en">TEXTILE DESIGN</a></h5>
+                        </div>
+                    </div>
+                          
+            </div>
+                
+        </div>
+ </div> -->
+<!--//Home End-->
+   
+</div>
+<br><br>
+<footer class="mt-5">
+           <div class="footer-cpy text-center">
+                    <div class="footer-social">
+                        <div class="copyrighttop">
+                          <ul>
+                                  
+                                <li>
+                                    <a class="facebook" href="https://archive.bsi.gov.in/#">
+                                        <!--<i class="fab fa-facebook-f"></i>-->
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                        
+                                <li>
+                                    <a class="facebook" href="https://archive.bsi.gov.in/page/en/brief-history">
+                                        <!--<i class="fab fa-facebook-f"></i>-->
+                                        <span>About US</span>
+                                    </a>
+                                </li>
+                                        
+                                <li>
+                                    <a class="facebook" href="http://archive.bsi.gov.in/admin/login">
+                                        <!--<i class="fab fa-facebook-f"></i>-->
+                                        <span>Admin</span>
+                                    </a>
+                                </li>
+                                                              </ul>
+
+                        </div>
+                    </div>
+                    <div class="copyrightbottom-w3ls-agile">
+
+                         <p class="visitor-counter"> Visitor  Counter (Since:  24 Aug 2021):<span class='visitor_counter'> <span>0</span><span>0</span><span>4</span><span>8</span><span>1</span><span>6</span><span>1</span><span>7</span><span>6</span></span><br>
+
+     <span >Last Updated on: 18-12-2024     </span>
+   </p>
+      
+<div class="col-lg-12">
+                  <p> © 2025 Content Owned, Updated and Maintained by Botanical Survey of India , Government of India <br> Site designed and hosted by National Informatics Centre. </a>
+          <a href="https://bsi.gov.in/page/en/web-policies" target="_blank"> Web Polices  </a>          
+            </p>
+</div>
+                    </div>
+                </div>
+
+                <!-- //footer -->
+            </div>
+        </div>
+    </footer>
+<script src="https://archive.bsi.gov.in/assets/js/common.functions.js?1622787568"></script>
+    <!-- js -->
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/jquery-min.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/bootstrap.js"></script>
+    <!-- //js -->
+    <!-- password-script -->
+    <script >
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- //password-script -->
+    <!-- required-js-files-->
+    <!-- carousel -->
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/owl.carousel.js"></script>
+    
+    <!-- //carousel -->
+
+    <!--//required-js-files-->
+    <!-- start-smoth-scrolling -->
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/move-top.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+
+    <script>
+        $(document).ready(function () {
+            /*
+                                    var defaults = {
+                                        containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear' 
+                                    };
+                                    */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+        
+        
+        
+        
+        (function ($) { 
+
+    $.fn.searchBox = function(ev) {
+
+        var $searchEl = $('.search-elem');
+        var $placeHolder = $('.placeholder');
+        var $sField = $('#search-field');
+
+        if ( ev === "open") {
+            $searchEl.addClass('search-open')
+        };
+
+        if ( ev === 'close') {
+            $searchEl.removeClass('search-open'),
+            $placeHolder.removeClass('move-up'),
+            $sField.val(''); 
+        };
+
+        var moveText = function() {
+            $placeHolder.addClass('move-up');
+        }
+
+        $sField.focus(moveText);
+        $placeHolder.on('click', moveText);
+        
+        $('.submit').prop('disabled', true);
+        $('#search-field').keyup(function() {
+            if($(this).val() != '') {
+               $('.submit').prop('disabled', false);
+            }
+        });
+    }   
+
+}(jQuery));
+
+$('.search-btn').on('click', function(e) {
+    $(this).searchBox('open');
+    e.preventDefault();
+});
+
+$('.close').on('click', function() {
+    $(this).searchBox('close');
+});
+    </script>
+    <script>
+        var $item = $('.carousel-item'); 
+var $wHeight = $(window).height();
+$item.eq(0).addClass('active');
+$item.height($wHeight); 
+$item.addClass('full-screen');
+
+$('.carousel img').each(function() {
+  var $src = $(this).attr('src');
+  var $color = $(this).attr('data-color');
+  $(this).parent().css({
+    'background-image' : 'url(' + $src + ')',
+    'background-color' : $color
+  });
+  $(this).remove();
+
+});
+
+$(window).on('resize', function (){
+  $wHeight = $(window).height();
+  $item.height($wHeight);
+});
+
+$('.carousel').carousel({
+  interval: 6000,
+  pause: "false"
+});
+    </script>
+
+
+    <script>
+    readMore( $('.spoiler'), 5);
+
+function readMore(jObj, lineNum) {
+  if ( isNaN(lineNum) ) {
+    lineNum = 5;
+  }
+  var go = new ReadMore (jObj, lineNum);
+}
+
+//class
+function ReadMore(_jObj, lineNum) { 
+  var READ_MORE_LABEL = 'I want to read more';
+  var HIDE_LABEL = 'Minimize it';
+
+  var jObj = _jObj;
+  var textMinHeight = ''+ (parseInt(jObj.children('.hidden-text').css('line-height'),10)*lineNum) +'px';
+  var textMaxHeight = ''+jObj.children('.hidden-text').css('height');
+
+  jObj.children('.hidden-text').css('height', ''+ textMaxHeight);
+  jObj.children('.hidden-text').css( 'transition', 'height .5s');
+  jObj.children('.hidden-text').css('height', ''+ textMinHeight);
+
+  jObj.append ('<button class=" btn btn-light read-more">'+READ_MORE_LABEL+'</button>');
+
+  jObj.children('.read-more').click ( function() {
+    if (jObj.children('.hidden-text').css('height') === textMinHeight) {
+      jObj.children('.hidden-text').css('height', ''+textMaxHeight);
+      jObj.children('.read-more').html(HIDE_LABEL).addClass('active');
+    } else {
+      jObj.children('.hidden-text').css('height', ''+textMinHeight);
+      jObj.children('.read-more').html(READ_MORE_LABEL).removeClass('active');
+    }
+  });
+
+}
+</script>
+    <!-- Necessary-JS-File-For-Bootstrap -->
+    <!-- jQuery-Photo-filter-lightbox-Gallery-plugin -->
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/jquery.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/jquery.quicksand.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/script.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/jquery.prettyPhoto.js"></script>
+    <!-- //jQuery-Photo-filter-lightbox-Gallery-plugin -->
+        <script src="https://archive.bsi.gov.in/assets/frontend/vendor/select2/select2.min.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/vendor/datepicker/moment.min.js"></script>
+    <script src="https://archive.bsi.gov.in/assets/frontend/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="https://archive.bsi.gov.in/assets/frontend/js/global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+<script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+  autoplay: true,
+  autoplayTimeout: 3000,
+  autoplayHoverPause: true,
+  loop: true,
+  margin: 30,
+  responsiveClass: true,
+  nav: true,
+  loop: true,
+  stagePadding: 100,
+  responsive: {
+    0: {
+      items: 1
+    },
+    568: {
+      items: 2
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 3
+    }
+  }
+})
+
+</script>
+ <script>
+
+window.onload = function() {
+  document.getElementById('button').onclick = function() {
+    document.getElementById('modalOverlay').style.display = 'none'
+  };
+};
+</script>
+
+
+</body>
+</html>
